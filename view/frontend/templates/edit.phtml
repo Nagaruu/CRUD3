@@ -1,0 +1,20 @@
+<div class="container">
+	<form method='POST' action="/magento/blog/index/save">
+	    <div class="form-group">
+	        <label for="name"><b>Name</b></label>
+	        <input type="text" class="form-control" id="name" placeholder="Enter a name" name="name" value="<?php $post = $block->getPost(); echo $post->getName(); ?>">
+	    </div>
+	    <br>
+	    <div class="form-group">
+	        <label for="phone"><b>Url Key</b></label>
+	        <input type="text" class="form-control" id="url" placeholder="Enter a phone" name="url" value="<?php if (isset($post['url_key'])) echo $post->getUrlKey();?>">
+	    </div>
+	    <br>
+	    <div class="form-group">
+	        <label for="phone"><b>Status</b></label>
+	        <input type="number" class="form-control" id="status" placeholder="Enter a phone" name="status" value="<?php if (isset($post['status'])) echo $post->getStatus();?>">
+	    </div>
+	    <br>
+	    <button type="submit" class="btn btn-primary" name="editbtn" value="<?php if (isset($post['post_id'])) echo $post->getId();?>">Submit</button>
+	</form>
+</div>

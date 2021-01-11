@@ -1,0 +1,33 @@
+<table>
+	<thead>
+		<a href="<?php echo $block->getBaseUrl(); ?>blog/index/create" class="action primary">Create New Post</a>
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>URL Key</th>
+			<th>Status</th>
+			<th colspan="2">Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php 
+		$posts = $block->getPosts();
+
+		foreach ($posts as $post) :
+			?>
+			<tr>
+				<td><?php echo $post->getId();  ?></td>
+				<td><?php echo $post->getName(); ?></td>
+				<td><?php echo $post->getUrlKey(); ?></td>
+				<td><?php echo $post->getStatus(); ?></td>
+
+				<td>
+					<a href="<?php echo $block->getBaseUrl();?>blog/index/edit/post_id/<?php echo $post->getId(); ?>" class="action primary">Edit</a>
+				</td>
+				<td>
+					<a style="color: #fff; background-color: red;" href="<?php echo $block->getBaseUrl();?>blog/index/delete/post_id/<?php echo $post->getId(); ?>" class="action primary">Delete</a>
+				</td>
+			</tr>
+		<?php endforeach;?>
+	</tbody>
+</table>
